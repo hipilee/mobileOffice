@@ -12,17 +12,18 @@ import com.jiaying.workstation.R;
  * 邮箱：353510746@qq.com
  * 功能：标题栏
  */
-public class SetTopView implements View.OnClickListener {
+public class SetTopView {
     private Activity mActivity;
     private TextView mTitle;
     private ImageView mBackView;
+    private BackViewOnClickListener backViewOnClickListener = new BackViewOnClickListener();
 
     public SetTopView(Activity activity, String title_text_string) {
         mActivity = activity;
         mTitle = (TextView) mActivity.findViewById(R.id.title_text);
         mBackView = (ImageView) mActivity.findViewById(R.id.back_img);
         mTitle.setText(title_text_string);
-        mBackView.setOnClickListener(this);
+        mBackView.setOnClickListener(backViewOnClickListener);
     }
 
     public SetTopView(Activity activity, int title_text_id) {
@@ -30,7 +31,7 @@ public class SetTopView implements View.OnClickListener {
         mTitle = (TextView) mActivity.findViewById(R.id.title_text);
         mBackView = (ImageView) mActivity.findViewById(R.id.back_img);
         mTitle.setText(activity.getResources().getString(title_text_id));
-        mBackView.setOnClickListener(this);
+        mBackView.setOnClickListener(backViewOnClickListener);
     }
 
     /**
@@ -44,15 +45,19 @@ public class SetTopView implements View.OnClickListener {
         mTitle = (TextView) mActivity.findViewById(R.id.title_text);
         mBackView = (ImageView) mActivity.findViewById(R.id.back_img);
         mTitle.setText(activity.getResources().getString(title_text_id));
-        mBackView.setOnClickListener(this);
+        mBackView.setOnClickListener(backViewOnClickListener);
         mBackView.setVisibility(backisvisible ? View.VISIBLE : View.GONE);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.back_img) {
-            mActivity.finish();
+
+    private class BackViewOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            goBack();
         }
 
+        private void goBack() {
+            mActivity.finish();
+        }
     }
 }

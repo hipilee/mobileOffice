@@ -28,14 +28,18 @@ public class BloodPlasmaCollectionFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_plasma_collection, container, false);
         nurse_login_btn = (Button) view.findViewById(R.id.nurse_login_btn);
-        nurse_login_btn.setOnClickListener(new goNuserLoginListener());
+        nurse_login_btn.setOnClickListener(new gotoNurseLoginListener());
         return view;
     }
 
     //护士登录浆机
-    private class goNuserLoginListener implements View.OnClickListener {
+    private class gotoNurseLoginListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
+            gotoBloodPlasmaMachineForNurseActivity();
+        }
+
+        private void gotoBloodPlasmaMachineForNurseActivity() {
             Intent it = new Intent(getActivity(), BloodPlasmaMachineForNurseActivity.class);
             startActivity(it);
         }

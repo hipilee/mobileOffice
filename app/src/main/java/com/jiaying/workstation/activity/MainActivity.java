@@ -11,16 +11,17 @@ import com.jiaying.workstation.com.jiaying.workstation.fragment.BloodPlasmaColle
  */
 public class MainActivity extends BaseActivity {
     private FragmentManager fragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragment_container, new BloodPlasmaCollectionFragment()).commit();
     }
 
     @Override
     public void initView() {
         setContentView(R.layout.activity_main);
+        fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_container, new BloodPlasmaCollectionFragment()).commit();
     }
 
     @Override

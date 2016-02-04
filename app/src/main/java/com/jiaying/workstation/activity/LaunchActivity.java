@@ -23,10 +23,15 @@ public class LaunchActivity extends Activity {
     private class runnable implements Runnable {
         @Override
         public void run() {
+            gotoMainActivity();
+        }
+
+        private void gotoMainActivity() {
             Intent it = new Intent(LaunchActivity.this, MainActivity.class);
             startActivity(it);
             finish();
         }
     }
+
 
 }
