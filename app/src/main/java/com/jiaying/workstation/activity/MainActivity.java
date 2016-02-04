@@ -3,6 +3,7 @@ package com.jiaying.workstation.activity;
 import android.app.FragmentManager;
 import android.os.Bundle;
 
+import com.jiaying.generallibrary.activity.BaseActivity;
 import com.jiaying.workstation.R;
 import com.jiaying.workstation.com.jiaying.workstation.fragment.BloodPlasmaCollectionFragment;
 
